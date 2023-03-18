@@ -1,12 +1,31 @@
+:root {
+    --border-rad: 10px;
+    --tile-size: 100px;
+}
+
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
     background-color: black;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #playground {
-    
+    background-color: grey;
+    padding: var(--border-rad);
+    border-radius: calc(2 * var(--border-rad));
+    grid-gap: var(--border-rad);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.tile {
+    background-color: black;
+    width: var(--tile-size);
+    height: var(--tile-size);
+    border-radius: var(--border-rad);
 }
 
