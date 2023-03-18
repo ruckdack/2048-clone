@@ -10,7 +10,6 @@ export class Tile {
         this.HTML.tileDiv.appendChild(this.HTML.span)
         this.HTML.tileDiv.setAttribute('class', 'tile')
         this.updateHTML()
-        console.log(this)
     }
 
     updateHTML() {
