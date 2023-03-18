@@ -1,6 +1,6 @@
 :root {
-    --border-rad: 10px;
     --tile-size: 100px;
+    --border-rad: calc(0.1*var(--tile-size));
 }
 
 body {
@@ -17,15 +17,41 @@ body {
     background-color: grey;
     padding: var(--border-rad);
     border-radius: calc(2 * var(--border-rad));
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#tiles-placeholder {
     grid-gap: var(--border-rad);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.tile {
+.tile-placeholder {
     background-color: black;
     width: var(--tile-size);
     height: var(--tile-size);
     border-radius: var(--border-rad);
 }
 
+#tiles {
+    margin-top: -100%;
+    position: relative;
+}
+
+.tile {
+    background-color: red;
+    width: var(--tile-size);
+    height: var(--tile-size);
+    border-radius: var(--border-rad);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile span {
+    font-size: 2em;
+    font-family: sans-serif;
+    color: white;
+}
