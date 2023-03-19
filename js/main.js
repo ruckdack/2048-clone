@@ -1,6 +1,6 @@
-import { TilesField } from "./tiles_field.js";
+import { TilesField } from "./tiles_field.js"
 
-let tilesField = new TilesField();
+let tilesField = new TilesField()
 
 document.addEventListener('keydown', (event) => {
     if (event.key == 'ArrowUp' || event.key == 'w') {
@@ -13,3 +13,10 @@ document.addEventListener('keydown', (event) => {
         tilesField.move([1, 0])
     }
 })
+
+const handleRestart = () => {
+    tilesField.destructor()
+    tilesField = new TilesField()
+}
+
+document.querySelector('#restart-button').addEventListener('click', handleRestart)

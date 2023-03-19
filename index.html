@@ -9,26 +9,38 @@
     <script defer src="js/main.js" type="module"></script>
 </head>
 <body>
-    <div id="playground">
-        <div id="tiles-placeholder">
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
-            <div class="tile-placeholder"></div>
+    <div id="wrapper">
+        <div id="controls">
+            <div id="score" class="tile-like">
+                <span>SCORE</span>
+                <span id="score-span"></span>
+            </div>
+            <span id="title-span">2048</span>
+            <button id="restart-button" class="tile-like">
+                restart
+            </button>
         </div>
-        <div id="tiles">
+        <div id="field">
+            <div id="tiles-placeholder">
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+                <div class="tile-placeholder"></div>
+            </div>
+            <div id="tiles">
+            </div>
         </div>
     </div>
 </body>

@@ -1,6 +1,23 @@
 :root {
-    --tile-size: 100px;
+    --tile-size: 150px;
     --border-rad: calc(0.1*var(--tile-size));
+
+    font-size: 2rem;
+    font-family: sans-serif;
+    color: white;
+}
+
+button {
+    border: none;
+    padding: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+ 
+button:active {
+    position: relative;
+    top: 2px;
 }
 
 body {
@@ -13,7 +30,7 @@ body {
     justify-content: center;
 }
 
-#playground {
+#field {
     background-color: grey;
     padding: var(--border-rad);
     border-radius: calc(2 * var(--border-rad));
@@ -39,11 +56,14 @@ body {
     position: relative;
 }
 
-.tile {
+.tile-like {
     background-color: red;
     width: var(--tile-size);
     height: var(--tile-size);
     border-radius: var(--border-rad);
+}
+
+.tile {
     position: absolute;
     display: flex;
     align-items: center;
@@ -51,8 +71,27 @@ body {
     transition: top 200ms, left 200ms;
 }
 
-.tile span {
-    font-size: 2em;
-    font-family: sans-serif;
-    color: white;
+#controls {
+    background-color: grey;
+    border-radius: calc(2*var(--border-rad));
+    padding: var(--border-rad);
+    margin-bottom: calc(2*var(--border-rad));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#score {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#score-span {
+    font-size: 1.5rem;
+}
+
+#title-span {
+    font-size: 3.5rem;
 }

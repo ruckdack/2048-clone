@@ -8,7 +8,7 @@ export class Tile {
         this.HTML.tileDiv = document.createElement('div')
         this.HTML.span = document.createElement('span')
         this.HTML.tileDiv.appendChild(this.HTML.span)
-        this.HTML.tileDiv.setAttribute('class', 'tile')
+        this.HTML.tileDiv.setAttribute('class', 'tile tile-like')
         this.updateHTML()
     }
 

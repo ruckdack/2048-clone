@@ -5,6 +5,17 @@ export class TilesField {
     constructor() {
         this.field = Array(GRID_SIZE).fill(0).map(_ => Array(GRID_SIZE).fill(0).map(_ => []))
         for (let i = 0; i < 2; ++i) this.#addTile()
+        this.score = 0
+        this.updateHTML()
+    }
+
+    destructor() {
+        for (let x = 0; x < GRID_SIZE; ++x) {
+            for (let y = 0; y < GRID_SIZE; ++y) {
+                if (!this.field[x][y].length) continue
+                this.field[x][y].forEach(tile => tile.HTML.tileDiv.remove())
+            }
+        }
     }
 
     updateHTML() {
@@ -14,15 +25,19 @@ export class TilesField {
                 this.field[x][y].forEach(tile => tile.updateHTML())
             }
         }
+        document.querySelector('#score-span').textContent = this.score
     }
 
     move(dir) {
-        for (let i = 0; i < GRID_SIZE+1; ++i) {
+        let i = 0
+        for (;; ++i) {
+            let changesInIter = false
             for (let x = 0; x < GRID_SIZE; ++x) {
                 for (let y = 0; y < GRID_SIZE; ++y) {
                     if (!this.field[x][y].length) continue
                     const [newX, newY] = this.#movedTilePos([x,y], dir)
                     if (x == newX && y == newY) continue
+                    changesInIter = true
                     for (let tile of this.field[x][y]) {
                         tile.position = [newX, newY]
                         this.field[newX][newY].push(tile)
@@ -30,7 +45,9 @@ export class TilesField {
                     this.field[x][y] = []
                 }
             }
+            if (!changesInIter) break;
         }
+        if (i == 0) return
         this.updateHTML()
         setTimeout(() => {
             this.#mergeTiles()
@@ -42,7 +59,6 @@ export class TilesField {
     }
 
     #handleEnd() {
-        console.log("your score: TODO")
     }
 
     #movedTilePos(pos, dir) {
@@ -65,6 +81,7 @@ export class TilesField {
                 if (!this.field[x][y].length) continue
                 let representative = this.field[x][y][0]
                 representative.number *= this.field[x][y].length
+                if (this.field[x][y].length > 1) this.score += representative.number
                 for (let i = 1; i < this.field[x][y].length; ++i) {
                     this.field[x][y][i].HTML.tileDiv.remove()
                 }
