@@ -1,8 +1,8 @@
 import { TILE_SIZE, GRID_SIZE } from "./constants.js"
 
 export class Tile {
-    constructor() {
-        this.position = [this.#randomPos(), this.#randomPos()]
+    constructor(x, y) {
+        this.position = [x, y]
         this.number = 2
         this.HTML = {}
         this.HTML.tileDiv = document.createElement('div')
@@ -27,9 +27,6 @@ export class Tile {
         this.HTML.span.innerText = `${this.number}`
     }
 
-    #randomPos() {
-        return Math.floor(Math.random() * GRID_SIZE)
-    }
     
     #calcTopLeft () {
         const gap = TILE_SIZE / 10

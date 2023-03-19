@@ -48,6 +48,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: top 200ms, left 200ms;
 }
 
 .tile span {
